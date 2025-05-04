@@ -24,7 +24,7 @@
 </div>
 
 <script id="typeColumnTemplate" type="text/x-template">
-    ${if(TypeName==@ExpenseTypes.Income.ToString())}
+    ${if(TypeName == "Income")}
         <span class="badge bg-success">${TypeName}</span>
     ${else}
         <span class="badge bg-danger">${TypeName}</span>
@@ -36,6 +36,12 @@
         <a class="btn btn-sm" href="/Category/AddOrEdit/${CategoryId}">
             <i class="fa-solid fa-pen fa-lg no-a-decoration"></i>
         </a>
-
+        <form action="/Category/Delete/${CategoryId}" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration"
+            onclick="return confirm(&quot;Are you sure to delete this record?&quot;)">
+                <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
+            </button>
+        </form>
     </div>
 </script>
