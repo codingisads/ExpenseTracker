@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -13,10 +13,28 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    font-family: 'Poppins', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
 }
 
+*:not(.fa-solid):not(.fa):not(.e-icons) {
+    font-family: 'Poppins', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+}
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #12161d;
+    color: #fff;
+}
+.e-bigger {
+    font-size: x-large;
+}
+
+/* Widget */
+
+.widget {
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    border-radius: 1rem;
+    background-color: #1a222b;
 }

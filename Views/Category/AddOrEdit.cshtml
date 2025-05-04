@@ -1,0 +1,41 @@
+﻿@using ExpenseTracker.Models.Constants
+@using Syncfusion.EJ2
+@model ExpenseTracker.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form asp-action="AddOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" value="@Model.CategoryId" name="CategoryId" />
+                <div class="mb-3">
+                    <ejs-dropdownlist id="type" placeholder="Type" ejs-for="Type" floatLabelType="Always" dataSource="ViewBag.Estados" fields="@(new Syncfusion.EJ2.DropDowns.DropDownListFieldSettings { Text = "Text", Value = "Value" })"></ejs-dropdownlist>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="title" placeholder="Title" ejs-for="Title" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="icob" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Icon" class="text-danger"></span>
+                </div>
+                <ejs-button id="submit" content="Submit" type="submit" cssClass="e-success"></ejs-button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-content-center" style="background-color: #212b36">
+            <i class="fa-solid fa-shapes fa-2xl m-auto"></i>
+        </div>
+    </div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
