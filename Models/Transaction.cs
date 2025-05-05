@@ -6,7 +6,7 @@ namespace ExpenseTracker.Models;
 public class Transaction
 {
     [Key]
-    public int TransactionId { get; set; }
+    public int? TransactionId { get; set; }
 
 
     public int CategoryId { get; set; }

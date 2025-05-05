@@ -29,8 +29,9 @@ namespace ExpenseTracker.Controllers
         // GET: Transaction/AddOrEdit
         public IActionResult AddOrEdit()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
-            return View();
+            PopulateCategories();
+
+            return View(new Transaction());
         }
 
         // POST: Transaction/AddOrEdit
@@ -63,6 +64,20 @@ namespace ExpenseTracker.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        
+
+        [NonAction]
+        public void PopulateCategories()
+        {
+            var categoryCollection = _context.Categories.ToList();
+            Category defaultCategory = new()
+            {
+                CategoryId = 0,
+                Title = "Select a category"
+            };
+
+            categoryCollection.Insert(0,defaultCategory);
+
+            ViewBag.Categories = categoryCollection;
+        }
     }
 }
