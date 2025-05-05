@@ -3,7 +3,7 @@
 @model ExpenseTracker.Models.Category
 
 @{
-    ViewData["Title"] = "Create";
+	ViewData["PageTitle"] = Model.CategoryId is null ? "Add Category" : "Edit Category";
 }
 
 <div class="row justify-content-center">

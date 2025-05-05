@@ -2,7 +2,9 @@
 @model IEnumerable<ExpenseTracker.Models.Category>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = "Categories";
+    ViewData["PageActionText"] = "+ Add Category";
+    ViewData["PageActionUrl"] = "/Category/AddOrEdit";
 }
 
 <div class="row">

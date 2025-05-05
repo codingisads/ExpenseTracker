@@ -26,6 +26,11 @@ body {
     background-color: #12161d;
     color: #fff;
 }
+
+.a-links {
+    text-decoration: none;
+    color: #fff !important;
+}
 .e-bigger {
     font-size: x-large;
 }
