@@ -10,11 +10,11 @@ public class Transaction
 
 
     public int CategoryId { get; set; }
-    public Category Category { get; set; }
+    public Category? Category { get; set; }
 
     public double Amount { get; set; }
 
-    [Column(TypeName = "nvarchar(5)")]
+    [Column(TypeName = "nvarchar(500)")]
     public string? Note { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;
 }
