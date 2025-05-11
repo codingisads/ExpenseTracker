@@ -17,4 +17,17 @@ public class Transaction
     [Column(TypeName = "nvarchar(500)")]
     public string? Note { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;
+
+    [NotMapped]
+    public string? CategoryTitleWithIcon
+    {
+        get
+        {
+            if (Category != null)
+            {
+                return Category.Icon + " " + Category.Title;
+            }
+            return null;
+        }
+    }
 }
