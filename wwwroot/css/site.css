@@ -35,6 +35,14 @@ body {
     font-size: x-large;
 }
 
+
+/*Sidebar*/
+
+.main-content {
+    margin-left: 290px
+}
+
+
 /*Button*/
 
 .btn:focus, .btn:active{
@@ -58,3 +66,28 @@ body {
     border-radius: 1rem;
     background-color: #1a222b;
 }
+
+.widget > div:first-of-type {
+    border-radius: 1rem;
+}
+
+    .widget.income > div:first-of-type {
+        background-color: #5db239;
+    }
+
+.widget.expense > div:first-of-type {
+    background-color: #d03d3d;
+}
+
+.widget.balance > div:first-of-type {
+    background-color: #387bc3;
+}
+
+
+
+#sidebar {
+    background-color: #12161d;
+    border-right: 1px dashed rgba(75, 82, 85, 0.24);
+    padding: 10px 20px;
+}
+
