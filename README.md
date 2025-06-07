@@ -3,7 +3,7 @@
 
 Una aplicación web moderna y responsiva para el seguimiento de ingresos y gastos, construida con Blazor, .NET y MudBlazor.
 
-![Screenshot](screenshot.png)
+![Screenshot](Assets/Expense-Tracker-Web.png)
 
 ## ✨ Características
 
