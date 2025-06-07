@@ -3,6 +3,7 @@
     ViewData["isDashboard"] = true;
 }
 
+@*Summary Widgets*@
 <div class ="row mb-4 justify-content-end">
     <div class="col-md-3">
         <ejs-dropdownlist 
@@ -13,7 +14,6 @@
         </ejs-dropdownlist>
     </div>
 </div>
-
 
 <div class="row mb-4">
     <div class="col-md-4">
@@ -56,6 +56,83 @@
 </div>
 
 
+@*Doughnut and spline chart*@
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="widget chart">
+            <div class="p-4">
+                <h5 class="fw-bold">Expense by Category</h5>
+            </div>
+            <ejs-accumulationchart id="donutchart" enableSmartLabels>
+                <e-accumulation-series-collection>
+                    <e-accumulation-series dataSource="@ViewBag.DonutChartData" 
+                    xName="CategoryTitleWithIcon"
+                    yName="Amount" innerRadius="40%" legendShape="Circle">
+                    <e-accumulationseries-datalabel name="FormattedAmount" visible=true></e-accumulationseries-datalabel>
+                
+                </e-accumulation-series>
+                </e-accumulation-series-collection>
+                <e-accumulationchart-legendsettings position="Top">
+                    <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
+                </e-accumulationchart-legendsettings>
+                <e-accumulationchart-tooltipsettings enable></e-accumulationchart-tooltipsettings>
+            </ejs-accumulationchart>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="p-4">
+            <h5 class="fw-bold">Income vs Expense</h5>
+        </div>
+        <ejs-chart id="splinechart" palettes="@(new string[] {"#54ffa9", "#ffe91a"})">
+            <e-chart-primaryxaxis valueType="Category">
+                <e-majorgridlines width="0"></e-majorgridlines>
+                <e-majorticklines width="0"></e-majorticklines>
+            </e-chart-primaryxaxis>
+            <e-chart-primaryyaxis>
+                <e-majorgridlines width="1" color="#32414d" dashArray="3,5"></e-majorgridlines>
+                <e-majorticklines width="0"></e-majorticklines>
+                <e-linestyle width="0"></e-linestyle>
+            </e-chart-primaryyaxis>
+            <e-chart-chartarea>
+                <e-chartarea-border width="0"></e-chartarea-border> 
+            </e-chart-chartarea>
+            <e-series-collection>
+                <e-series dataSource="@ViewBag.SplineChartData" width="3" xName="Day" yName="Income" name="Income" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                <e-series dataSource="@ViewBag.SplineChartData" width="3" xName="Day" yName="Expense" name="Expense" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                <e-series></e-series>
+            </e-series-collection>
+            <e-chart-legendsettings position=Top alignment="Far" toggleVisibility="false">
+                <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
+            </e-chart-legendsettings>
+            <e-chart-tooltipsettings enable shared></e-chart-tooltipsettings>
+        </ejs-chart>
+    </div>
+</div>
+
+
+@*Recent transactions and +*@
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="widget">
+            <div class="p-4">
+                <h5 class="fw-bold">Recent Transactions</h5>
+            </div>
+            <div class="px-4 pb-4">
+                <ejs-grid id="recent-transactions" dataSource="@ViewBag.RecentTransactions" gridLines="None">
+                    <e-grid-columns>
+                        <e-grid-column headerText="Category" field="CategoryTitleWithIcon" width="150px"></e-grid-column>
+                        <e-grid-column headerText="Amount" field="AmountWithCurrency" width="100px"></e-grid-column>
+                        <e-grid-column headerText="Date" field="date" width="150px" format="dd-MM-yyyy"></e-grid-column>
+                    </e-grid-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Scripts*@
 <script>
     function onOptionChange(args) {
         // Redirige al controlador pasando el valor como query string
