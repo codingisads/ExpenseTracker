@@ -1,7 +1,7 @@
 
 # 💰 Expense Tracker
 
-Una aplicación web moderna y responsiva para el seguimiento de ingresos y gastos, construida con Blazor, .NET y MudBlazor.
+Una aplicación web moderna y responsiva para el seguimiento de ingresos y gastos, construida con ASP.NET Core MVC.
 
 ![Screenshot](Assets/Expense-Tracker-Web.png)
 
@@ -20,7 +20,6 @@ Una aplicación web moderna y responsiva para el seguimiento de ingresos y gasto
 - 📋 **Tabla de transacciones recientes**
 - 🎨 Interfaz moderna con modo oscuro
 - 📅 Filtro de transacciones por período (últimos 7 días, etc.)
-- 🔒 Autenticación (opcional, si está implementada)
 
 ## 🧰 Tecnologías
 
@@ -58,14 +57,6 @@ dotnet run
 https://localhost:7201
 ```
 
-## 📁 Estructura del Proyecto
-
-```
-/Pages           -> Componentes de Blazor por vista
-/Data            -> DbContext y modelos de EF
-/Services        -> Lógica de negocio
-/Shared          -> Layouts y componentes comunes
-```
 
 ## ✅ To-Do / Mejoras futuras
 
@@ -74,10 +65,6 @@ https://localhost:7201
 - Categorías personalizables por usuario
 - Notificaciones por email o SMS
 - API REST pública para acceso externo
-
-## 📝 Licencia
-
-Este proyecto está bajo la licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente.
 
 ---
 
